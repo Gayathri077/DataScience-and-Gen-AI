@@ -30,13 +30,41 @@ def code_review(code):
         return f"Error: {e}"
 
 # Streamlit UI
-st.title("🐍 Code Reviewer")
-st.write("Submit your **Python** code, and I'll review it for you!😉")
+st.markdown("<h1 style='color: green';> 🪄Magical Reviewer </h1>", unsafe_allow_html=True)
+
+#styling
+st.markdown(
+    """
+    <style>
+        div.stButton > button {
+            background-color:#3D8D7A; 
+            color: white;
+            font-size: 18px;
+            border-radius: 10px;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# Custom CSS for label text
+st.markdown(
+    """
+    <style>
+        /* Targeting the label of the text area */
+        div[data-testid="stTextArea"] label {
+            color: #5B913B ; 
+            font-size: 25px ; 
+            font-weight: bold ; 
+        }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 # User input
-user_code = st.text_area("Paste your Python code here:")
-
-if st.button("Review Code"):
+user_code = st.text_area("Submit your python code here, I'll review it for you...😉 ")
+if st.button("Review Code 📝"):
     if user_code.strip():
         review_result = code_review(user_code)
         st.success("📝AI Review:")
