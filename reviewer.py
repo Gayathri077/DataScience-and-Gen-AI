@@ -44,5 +44,21 @@ if st.button("Review Code"):
     else:
         st.warning("Please enter a valid Python script.")
 
+stars = st.feedback("stars")
+st.balloons()
+if stars == 4:
+    st.write("🤩 Great job! Your feedback is super helpful and accurate. Keep it up!")
+elif stars == 3:
+    st.write("👍 Good job! Your feedback is mostly helpful and accurate. Keep improving!")
+elif stars == 2:
+    st.write("Thank you for your feedback! I'll keep trying to get 5 stars from you...😉")
+elif stars is not None:  # Handle cases where a rating is selected
+    st.text_area("Can you suggest how I can improve my feedback? I want to get 5 stars from you!", key="improvement_suggestions")
+    if st.button("Submit Suggestion"):
+        user_suggestion = st.session_state.get("improvement_suggestions", "")
+        # ... Process the user_suggestion, e.g., save to a file or database ...
+        st.write("Thank you for your suggestion!")
+    
+
 st.markdown("------------")
 st.caption("💜 Powered by Google Gemini | Designed for Python code reviews only")
