@@ -18,7 +18,7 @@ def code_review(code):
         return f"Error: {e}"
 
 # Streamlit UI
-st.set_page_config(layout="wide")
+st.set_page_config(layout="wide", page_icon='📝', page_title="Code reviewer")
 st.markdown("<h1 style='color: green';> 🪄Magical Reviewer </h1>", unsafe_allow_html=True)
 st.markdown("-----------------------------")
 #styling
