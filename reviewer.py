@@ -77,4 +77,4 @@ elif stars is not None:
     
 
 st.markdown("------------")
-st.caption("💜 Powered by Google Gemini | Designed for Python code reviews only")
+st.caption("📗 Powered by Google Gemini | Designed for Python code reviews only")
