@@ -18,8 +18,9 @@ def code_review(code):
         return f"Error: {e}"
 
 # Streamlit UI
+st.set_page_config(layout="wide")
 st.markdown("<h1 style='color: green';> 🪄Magical Reviewer </h1>", unsafe_allow_html=True)
-
+st.markdown("-----------------------------")
 #styling
 st.markdown(
     """
@@ -34,24 +35,9 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-
-# Custom CSS for label text
-st.markdown(
-    """
-    <style>
-        /* Targeting the label of the text area */
-        div[data-testid="stTextArea"] label {
-            color: #5B913B ; 
-            font-size: 50px ; 
-            font-weight: bold ; 
-        }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
 # User input
-user_code = st.text_area("Submit your python code here, I'll review it for you...😉 ")
+st.markdown("<h3 class='custom-label' style='color:#5B913B; font-weight:semi-bold; font-size:20px; margin-bottom: -50px'>Paste Your Python Code here, I'll review it for you...😉</h3>", unsafe_allow_html=True)
+user_code = st.text_area("", "")
 if st.button("Review Code 📝"):
     if user_code.strip():
         review_result = code_review(user_code)
@@ -62,7 +48,7 @@ if st.button("Review Code 📝"):
 
 stars = st.feedback("stars")
 if stars is None:
-    st.write("Please rate the code review...🧙🏻😟")
+    st.write("<p style = 'color: pink;'>Don't forget to encourage me...😜</p>", unsafe_allow_html = True)
 elif stars == 4:
     st.write("🤩 I'm glad that you like me! Your feedback is super helpful.My 🔋 is full...😃")
 elif stars == 3:
