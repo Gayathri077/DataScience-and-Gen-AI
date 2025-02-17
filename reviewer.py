@@ -1,8 +1,15 @@
 import streamlit as st
 import google.generativeai as genai
+from dotenv import load_dotenv
+import os
+
 
 # Configure Google Gemini API
-genai.configure(api_key="AIzaSyA6V0AV1Z7-A7DDBJn1ne2RHehj4-nXNGg")
+load_dotenv()  # Load the .env file
+api_key = os.getenv("API_KEY")  # Get API key
+
+print(api_key)  # Test if it's working
+
 
 # System Prompt to set AI behavior
 SYSTEM_PROMPT = """You are a Python Code Review Assistant. Your task is to analyze Python code, identify bugs, suggest fixes, and provide optimized versions while ensuring best practices, readability, and efficiency. If a user asks anything unrelated to Python code review, politely inform them of your specialization and encourage Python-related queries."""
