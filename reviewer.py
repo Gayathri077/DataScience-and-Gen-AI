@@ -2,12 +2,9 @@ import streamlit as st
 import google.generativeai as genai
 import os
 from dotenv import load_dotenv
-
 load_dotenv(".venv/api.env")  
-# Configure Google Gemini API
 my_api_key = os.getenv("GOOGLE_API_KEY")  
 genai.configure(api_key=my_api_key)
-
 
 # System Prompt to set AI behavior
 SYSTEM_PROMPT = """You are a Python Code Review Assistant. Your task is to analyze Python code, identify bugs, suggest fixes, and provide optimized versions while ensuring best practices, readability, and efficiency. If a user asks anything unrelated to Python code review, politely inform them of your specialization and encourage Python-related queries."""
@@ -25,7 +22,7 @@ def code_review(code):
 # Streamlit UI
 st.set_page_config(layout="wide", page_icon='📝', page_title="Code reviewer")
 st.markdown("<h1 style='color: green';> 🪄Magical Reviewer </h1>", unsafe_allow_html=True)
-st.markdown("-----------------------------")
+st.markdown("--------")
 #styling
 st.markdown(
     """
@@ -41,7 +38,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 # User input
-st.markdown("<h3 class='custom-label' style='color:#5B913B; font-weight:semi-bold; font-size:20px; margin-bottom: -50px'>Paste Your Python Code here, I'll review it for you...😉</h3>", unsafe_allow_html=True)
+st.markdown("<h3 class='custom-label' style='color:#5B913B; font-weight:semi-bold; font-size:20px; margin-bottom: -50px'>Paste your Python Code here, I'll review it for you...😉</h3>", unsafe_allow_html=True)
 user_code = st.text_area("", "")
 if st.button("Review Code 📝"):
     if user_code.strip():
